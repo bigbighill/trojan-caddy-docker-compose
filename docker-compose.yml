@@ -15,9 +15,9 @@ services:
         - caddy
 
   caddy:
-      image: abiosoft/caddy
+      image: bigbighill/caddy
       ports:
-        - "80:80"
+        - "127.0.0.1:80:80"
       volumes:
         - ./wwwroot:/usr/src
         - ./caddy/Caddyfile:/etc/Caddyfile
