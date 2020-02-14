@@ -18,7 +18,10 @@ RUN apk add --no-cache --virtual .build-deps \
         libstdc++ \
         boost-system \
         boost-program_options \
-        mariadb-connector-c
+        mariadb-connector-c \
+        tzdata
+
+ENV TZ=Asia/Shanghai
 
 WORKDIR /config
 
