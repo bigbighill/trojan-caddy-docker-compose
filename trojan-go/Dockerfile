@@ -19,4 +19,4 @@ ENV PATH /usr/bin/trojan-go:$PATH
 
 WORKDIR /config
 
-CMD ["/bin/sh", "/wait_for_caddy.sh", "trojan", "-config", "config.json"]
+CMD ["trojan", "-config", "config.json"]
