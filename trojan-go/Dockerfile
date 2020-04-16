@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 alpine:latest
+FROM amd64/alpine:latest
 
 ARG VERSION='v0.1.3'
 
