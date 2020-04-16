@@ -8,10 +8,10 @@ RUN mkdir /tmp/repo \
       unzip \
       tzdata \
  && cd /tmp/repo \
- && wget --no-check-certificate https://github.com/p4gefau1t/trojan-go/releases/download/$VERSION/trojan-go-linux-amd64.zip \
- && unzip /tmp/repo/trojan-go-linux-amd64.zip -d /tmp/repo/trojan-go \
+ && wget --no-check-certificate https://github.com/p4gefau1t/trojan-go/releases/download/$VERSION/trojan-go-linux-386.zip \
+ && unzip /tmp/repo/trojan-go-linux-386.zip -d /tmp/repo/trojan-go \
  && cp /tmp/repo/trojan-go /usr/bin -r \
- && mv /usr/bin/trojan-go/trojan-go-linux-amd64 /usr/bin/trojan-go/trojan \
+ && mv /usr/bin/trojan-go/trojan-go-linux-386 /usr/bin/trojan-go/trojan \
  && rm -rf /tmp/repo
 
 ENV TZ=Asia/Shanghai
