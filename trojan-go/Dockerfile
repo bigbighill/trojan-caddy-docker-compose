@@ -15,7 +15,8 @@ RUN mkdir /tmp/repo \
  && rm -rf /tmp/repo
 
 ENV TZ=Asia/Shanghai
+ENV PATH /usr/bin/trojan-go:$PATH
 
 WORKDIR /config
 
-CMD ["/bin/sh", "/wait_for_caddy.sh", "/usr/bin/trojan-go/trojan","-config", "config.json"]
+CMD ["/bin/sh", "/wait_for_caddy.sh", "trojan", "-config", "config.json"]
