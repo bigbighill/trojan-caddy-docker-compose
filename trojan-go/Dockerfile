@@ -1,28 +1,20 @@
-FROM alpine:3.9
+FROM alpine:latest
 
-ARG VERSION='v1.15.1'
+ARG VERSION='v0.1.3'
 
-RUN apk add --no-cache --virtual .build-deps \
-        build-base \
-        cmake \
-        boost-dev \
-        openssl-dev \
-        mariadb-connector-c-dev \
-        git \
-    && git clone --branch=${VERSION} https://github.com/trojan-gfw/trojan.git \
-    && (cd trojan && cmake . && make -j $(nproc) && strip -s trojan \
-    && mv trojan /usr/local/bin) \
-    && rm -rf trojan \
-    && apk del .build-deps \
-    && apk add --no-cache --virtual .trojan-rundeps \
-        libstdc++ \
-        boost-system \
-        boost-program_options \
-        mariadb-connector-c \
-        tzdata
+
+RUN mkdir /tmp/repo \ 
+ && apk add --no-cache \
+      unzip \
+      tzdata \
+ && cd /tmp/repo \
+ && wget --no-check-certificate https://github.com/p4gefau1t/trojan-go/releases/download/$VERSION/trojan-go-linux-amd64.zip \
+ && unzip -d/tmp/repo/trojan-go /tmp/repo/trojan-go-linux-amd64.zip  \
+ && mv /tmp/repo/torjan-go/ /usr/bin \
+ && rm -rf /tmp/repo
 
 ENV TZ=Asia/Shanghai
 
 WORKDIR /config
 
-CMD ["/bin/sh", "/wait_for_caddy.sh", "trojan", "config.json"]
+CMD ["/bin/sh", "/wait_for_caddy.sh", "/usr/bin/trogjan-go/trojan", "config.json"]
