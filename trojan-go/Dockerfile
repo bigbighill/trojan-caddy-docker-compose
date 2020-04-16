@@ -10,7 +10,7 @@ RUN mkdir /tmp/repo \
  && cd /tmp/repo \
  && wget --no-check-certificate https://github.com/p4gefau1t/trojan-go/releases/download/$VERSION/trojan-go-linux-amd64.zip \
  && unzip -d/tmp/repo/trojan-go /tmp/repo/trojan-go-linux-amd64.zip  \
- && mv /tmp/repo/torjan-go/ /usr/bin \
+ && mv /tmp/repo/trojan-go/ /usr/bin \
  && rm -rf /tmp/repo
 
 ENV TZ=Asia/Shanghai
