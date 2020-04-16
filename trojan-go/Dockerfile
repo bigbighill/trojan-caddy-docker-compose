@@ -9,7 +9,7 @@ RUN mkdir /tmp/repo \
       tzdata \
  && cd /tmp/repo \
  && wget --no-check-certificate https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.31-r0/glibc-2.31-r0.apk \
- && apk add --repositories-file=/dev/null --allow-untrusted --no-network --no-cache /tmp/repo/glibc-2.3.1-r0.apk \
+ && apk add --repositories-file=/dev/null --allow-untrusted --no-network --no-cache /tmp/repo/glibc-2.31-r0.apk \
  && wget --no-check-certificate https://github.com/p4gefau1t/trojan-go/releases/download/$VERSION/trojan-go-linux-amd64.zip \
  && unzip /tmp/repo/trojan-go-linux-amd64.zip -d /tmp/repo/trojan-go \
  && cp /tmp/repo/trojan-go /usr/bin -r \
