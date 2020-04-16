@@ -18,4 +18,4 @@ ENV TZ=Asia/Shanghai
 
 WORKDIR /config
 
-CMD ["/bin/sh", "/wait_for_caddy.sh", "/usr/bin/trojan-go/trojan -config", "config.json"]
+CMD ["/bin/sh", "/wait_for_caddy.sh", "/usr/bin/trojan-go/trojan","-config", "config.json"]
