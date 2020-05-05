@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ARG VERSION='v0.4.3'
+ARG VERSION='v0.4.4'
 
 
 RUN set -ex \
