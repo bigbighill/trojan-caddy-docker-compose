@@ -15,9 +15,8 @@ FROM alpine:latest
 
 COPY --from=builder /release /usr/bin/trojan-go/
 
-RUN set -ex \
-	&& apk add --no-cache \
-			tzdata
+RUN set -ex && apk add --no-cache tzdata
+			
 ENV TZ=Asia/Shanghai
 
 WORKDIR /config
