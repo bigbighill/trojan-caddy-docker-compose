@@ -15,7 +15,7 @@ RUN set -ex \
 	&& git clone --branch=$VERSION  https://github.com/p4gefau1t/trojan-go.git  \
 	&& cd trojan-go \
  	&& VAR_SETTING="$VAR_SETTING -X $PACKAGE_NAME/constant.Version=$VERSION" \
-	&& VAR_SETTING="$VAR_SETTING -X $PACKAGE_NAME/constant.Commit=$COMMIT" 
+	&& VAR_SETTING="$VAR_SETTING -X $PACKAGE_NAME/constant.Commit=$COMMIT" \ 
         && go build -tags "full" -ldflags "-s -w $VAR_SETTING" -o /release && rm -rf /trojan-go \
 	&& wget https://github.com/v2ray/domain-list-community/raw/release/dlc.dat -O /release/geosite.dat \
 	&& wget https://github.com/v2ray/geoip/raw/release/geoip.dat -O /release/geoip.dat
