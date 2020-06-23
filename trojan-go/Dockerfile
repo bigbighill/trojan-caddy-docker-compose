@@ -12,7 +12,7 @@ WORKDIR /
 
 RUN set -ex \ 
 	&& apk add --no-cache --update git  && mkdir release \
-	&& git clone --branch=$VERSION --depth=1 https://github.com/p4gefau1t/trojan-go.git  \
+	&& git clone --branch=$VERSION  https://github.com/p4gefau1t/trojan-go.git  \
 	&& cd trojan-go \
  	&& VAR_SETTING="$VAR_SETTING -X $PACKAGE_NAME/constant.Version=$VERSION" \
 	&& VAR_SETTING="$VAR_SETTING -X $PACKAGE_NAME/constant.Commit=$COMMIT" 
