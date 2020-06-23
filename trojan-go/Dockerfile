@@ -1,10 +1,10 @@
 FROM golang:alpine AS builder
 
-ARG VERSION='v0.7.6'
+ARG VERSION="v0.7.6"
 
 ARG PACKAGE_NAME="github.com/p4gefau1t/trojan-go"
 
-ARG COMMIT=`git rev-parse HEAD`
+ARG COMMIT="git rev-parse HEAD"
 
 ARG VAR_SETTING=""
 
