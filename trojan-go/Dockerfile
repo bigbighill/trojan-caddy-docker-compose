@@ -5,7 +5,7 @@ ARG VERSION="v0.7.7"
 WORKDIR /
 
 RUN set -ex \ 
-	&& apk add --no-cache --update bash git && mkdir /release  \
+	&& apk add --no-cache make git && mkdir /release  \
 	&& git clone --branch=$VERSION  https://github.com/p4gefau1t/trojan-go.git  \
 	&& cd trojan-go && make  && cp bin/trojan-go /release/trojan-go && rm trojan-go -rf \
        	&& wget https://github.com/v2ray/domain-list-community/raw/release/dlc.dat -O /release/geosite.dat \
