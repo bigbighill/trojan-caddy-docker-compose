@@ -15,7 +15,8 @@ FROM alpine:latest
 
 COPY --from=builder /release /usr/bin/trojan-go/
 
-RUN set -ex && apk add --no-cache tzdata
+RUN set -ex && apk add --no-cache tzdata libcap \
+            && setcap 'cap_net_bind_service=+ep' /usr/bin/trojan-go/trojan-go
 			
 ENV TZ=Asia/Shanghai
 
