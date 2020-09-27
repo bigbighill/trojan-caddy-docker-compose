@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:latest
 
 ARG VERSION='v1.16.0'
 
@@ -19,7 +19,9 @@ RUN apk add --no-cache --virtual .build-deps \
         boost-system \
         boost-program_options \
         mariadb-connector-c \
-        tzdata
+        tzdata \
+        libcap \
+        && setcap 'cap_net_bind_service=+ep' /usr/local/bin/trojan
 
 ENV TZ=Asia/Shanghai
 
